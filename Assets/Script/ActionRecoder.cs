@@ -10,7 +10,7 @@ public class ActionRecoder : MonoBehaviour
       command.Execute(movement,coordinate);
    }
 
-   public void Undo(float movement)
+   public void Undo()
    {
       if (commandList.Count <=0)
       {

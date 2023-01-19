@@ -30,7 +30,7 @@ public class Unit : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Z))
         {
-            _actionRecoder.Undo(movement);
+            _actionRecoder.Undo();
         }
     }
 

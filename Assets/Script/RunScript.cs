@@ -10,6 +10,7 @@ public class RunScript : Command
     public override void Execute(float movement, float coordinate)
     {
         _unit.Runner(movement, coordinate);
+        
     }
 
     public override void Undo()
