@@ -4,8 +4,9 @@ using UnityEngine;
 public class Unit : MonoBehaviour
 {
 
-    public float movement = 1;
-    public List<float> currentPosition = new List<float>();
+    public Vector2 movementX = new Vector2(1,0);
+    public Vector2  movementY = new Vector2(0, 1);
+    public List<Vector2> currentPosition = new List<Vector2>();
 
     public ActionRecoder _actionRecoder;
   
@@ -21,11 +22,17 @@ public class Unit : MonoBehaviour
         Command runCommand = new RunScript(this);
         if (Input.GetKeyDown(KeyCode.D))
         {
-            _actionRecoder.Recorder(runCommand, movement, transform.position.x);
+            _actionRecoder.Recorder(runCommand, movementX, transform.position);
         }
         else if (Input.GetKeyDown(KeyCode.A))
         {
-            _actionRecoder.Recorder(runCommand, -movement, transform.position.x);
+            _actionRecoder.Recorder(runCommand, -movementX, transform.position);
+        }else if (Input.GetKeyDown(KeyCode.W))
+        {
+            _actionRecoder.Recorder(runCommand, movementY, transform.position);
+        }else if (Input.GetKeyDown(KeyCode.S))
+        {
+            _actionRecoder.Recorder(runCommand, -movementY, transform.position);
         }
 
         if (Input.GetKeyDown(KeyCode.Z))
@@ -34,15 +41,15 @@ public class Unit : MonoBehaviour
         }
     }
 
-    public void Runner(float runner, float currentCoordinate)
+    public void Runner(Vector2 runner, Vector2 currentCoordinate)
     {
-       transform.Translate(new Vector3(runner,0));
+       transform.Translate(new Vector3(runner.x,runner.y));
        currentPosition.Add(currentCoordinate);
     }
 
     public void PreviousPosition()
     {
-        transform.position = new Vector2(currentPosition[currentPosition.Count-1], 0);
+        transform.position = new Vector2(currentPosition[currentPosition.Count-1].x,currentPosition[currentPosition.Count-1].y);
         currentPosition.RemoveAt(currentPosition.Count-1);
     }
    
