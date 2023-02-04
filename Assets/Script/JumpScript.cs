@@ -1,4 +1,5 @@
-
+using System.Collections.Generic;
+using UnityEngine;
 
 public class JumpScript : Command
 {
@@ -7,7 +8,7 @@ public class JumpScript : Command
     }
 
 
-    public override void Execute(float movement, float coordinate)
+    public override void Execute(Vector2 movement, Vector2 coordinate)
     {
         throw new System.NotImplementedException();
     }

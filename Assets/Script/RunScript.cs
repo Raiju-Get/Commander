@@ -1,4 +1,5 @@
-
+using System.Collections.Generic;
+using UnityEngine;
 public class RunScript : Command
 {
     public RunScript(Unit unit) : base(unit)
@@ -7,7 +8,7 @@ public class RunScript : Command
 
 
 
-    public override void Execute(float movement, float coordinate)
+    public override void Execute(Vector2 movement, Vector2 coordinate)
     {
         _unit.Runner(movement, coordinate);
         

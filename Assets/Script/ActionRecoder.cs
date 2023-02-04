@@ -4,7 +4,7 @@ using UnityEngine;
 public class ActionRecoder : MonoBehaviour
 {
    public readonly Stack<Command> commandList = new Stack<Command>();  
-   public void Recorder(Command command, float movement, float coordinate)
+   public void Recorder(Command command, Vector2 movement, Vector2 coordinate)
    {
       commandList.Push(command);
       command.Execute(movement,coordinate);
